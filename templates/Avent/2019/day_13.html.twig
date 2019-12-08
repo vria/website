@@ -1,0 +1,66 @@
+{% extends 'Avent/day.html.twig' %}
+
+{% set year = 2019 %}
+
+{% block article_title "Jour 13 - Comprendre composant Messenger en y contribuant" %}
+
+{% block article_content_md %}
+Comprendre composant Messenger en y contribuant
+===============================================
+
+Le composant messenger permet facilement d’envoyer et de recevoir de messages. Je dis facilement parce que messenger
+fournit une abstraction ingénieux pour faciliter l’envoi et la réception de messages. Une ligne de code suffit pour
+envoyer le message :
+
+```php
+$bus->dispatch($message);
+```
+
+Ce message peut être envoyé en synchrone vers un handler dans un autre bout de votre application. Ou bien un transport asynchrone peut envoyer ce message vers AMQP broker ou Redis ou un API quelconque.
+
+![Envoyer un message]({{ asset('build/avent/2019/13/send_message.jpg') }})
+
+De l'autre côté le message bus peut recevoir un message depuis l'extérieur et orienter vers un handler. Un handler est un bout de code que vous ajoutez pour traiter des messages spécifiques.
+
+![Recevoir et handle un message]({{ asset('build/avent/2019/13/receive_message.jpg') }})
+
+Le troisième scénario rappelle “event dispatcher”. Il se peut que le message est traité en synchrone et ne quitte pas l’application :
+
+![Handle message en synchrone]({{ asset('build/avent/2019/13/handle_message_syncrhroniously.jpg') }})
+
+Qu’y a-t-il à l'intérieur ?
+---------------------------
+
+Envoyer ou traiter ? (Send or handle) ?
+---------------------------------------
+
+
+RPC avec AMQP
+-------------
+
+Ajouter PRC au composant Messenger
+----------------------------------
+
+Jeu de stamps
+-------------
+
+Conclusion
+----------
+
+{% endblock %}
+
+{% block article_avatar %}
+    <img src="{{ asset('build/avent/2019/13/vlad_riabchenko.jpeg') }}" alt="Vlad Riabchenko"/>
+{% endblock %}
+
+{% block article_bio %}
+    <h2>
+        <a href="{% block author_url 'https://vria.eu' %}" target="_blank">
+            {% block article_author 'Vlad Riabchenko' %}
+        </a>
+    </h2>
+    <p>
+        <span lang="en">Architecte technique</span> chez
+        <a href="https://webnet.fr/" target="_blank">Webnet</a>.
+    </p>
+{% endblock %}
