@@ -21,18 +21,18 @@ Ce message peut être envoyé en synchrone vers un handler dans un autre bout de
 votre application ou bien via un transport asynchrone (AMQP broker, Redis ou
 encore une API quelconque).
 
-![Envoyer un message]({{ asset('build/avent/2019/13/send_message.jpg') }})
+![Envoyer un message]({{ asset('build/avent/2019/13/send_message.png') }})
 
 De l’autre côté le bus de messages peut recevoir un message depuis l’extérieur
 de votre application et orienter celui-ci vers un handler interne. Un handler
 est un bout de code que vous ajoutez pour traiter ces messages spécifiques.
 
-![Recevoir et handle un message]({{ asset('build/avent/2019/13/receive_message.jpg') }})
+![Recevoir et handle un message]({{ asset('build/avent/2019/13/receive_message.png') }})
 
 Le troisième scénario rappelle «l’event dispatcher». Il se peut que le message
 soit traité en synchrone et ne quitte pas l’application :
 
-![Handle message en synchrone]({{ asset('build/avent/2019/13/handle_message_syncrhroniously.jpg') }})
+![Handle message en synchrone]({{ asset('build/avent/2019/13/handle_message_syncrhroniously.png') }})
 
 Qu’y a-t-il à l’intérieur ?
 ---------------------------
@@ -52,7 +52,9 @@ l’application.
 oriente vers les bons destinataires. Malgré sa grande importance c’est une
 petite classe qui ne comporte qu’une propriété et une méthode :
 
-![MessageBus class]({{ asset('build/avent/2019/13/message_bus_class.jpg') }})
+<p>
+    <img src="{{ asset('build/avent/2019/13/message_bus_class.png') }}" alt="MessageBus class" style="max-width: 40em; margin: 0 auto;">
+</p>
 
 Toute la logique complexe pour faire tourner la machinerie de réception et
 d’envoi des messages réside dans les multiples middlewares. La seule vraie
@@ -224,7 +226,7 @@ handler extérieur n’a pas la possibilité de fournir le résultat au client.
 En revanche il est possible d’utiliser le patron de conception *Remote Procedure
 Call* ou *RPC*:
 
-![RPC send request]({{ asset('build/avent/2019/13/rpc_send_request.jpg') }})
+![RPC send request]({{ asset('build/avent/2019/13/rpc_send_request.png') }})
 
 La file ***messages*** est ordinaire: plusieurs client peuvent y envoyer les
 requêtes, plusieurs handlers peuvent consommer et traiter ces requêtes. En
@@ -239,7 +241,7 @@ une file de callback.
 Le handler envoie sa réponse dans une file indiquée dans la propriété
 ***reply_to*** de la requête :
 
-![RPC receive response]({{ asset('build/avent/2019/13/rpc_receive_response.jpg') }})
+![RPC receive response]({{ asset('build/avent/2019/13/rpc_receive_response.png') }})
 
 La réponse est distribuée au client. Ayant terminé de traiter cette réponse le
 client détruit la connection à la file temporaire exclusive. Par conséquent AMQP
@@ -759,7 +761,7 @@ Le schéma suivant montre l’envoi d’un message en synchrone. Notez les stamp
 sont ajoutés par le code client et le messenger afin d’assurer le renvoi du
 résultat.
 
-![Messenger stamps - syncronous]({{ asset('build/avent/2019/13/stamps_syncronous.jpg') }})
+![Messenger stamps - syncronous]({{ asset('build/avent/2019/13/stamps_syncronous.png') }})
 
 Quand le message est envoyé en asynchrone le messenger s’occupe de l’envoi du
 message dans une application et le renvoi du résultat dans l’autre. Notez l’ajout
@@ -777,7 +779,7 @@ destinataire soit au courant si le client attend une réponse tandis que
 d’être envoyé. Le schéma suivant montre le processus de traitement du message
 par destinataire :
 
-![Messenger stamps - receive a message]({{ asset('build/avent/2019/13/stamps_receive_message.jpg') }})
+![Messenger stamps - receive a message]({{ asset('build/avent/2019/13/stamps_receive_message.png') }})
 
 Conclusion
 ----------
