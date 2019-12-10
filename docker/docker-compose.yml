@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  php:
+    build:
+      context: php7-fpm
+      args:
+        TIMEZONE: Europe/Paris
+    volumes:
+      - ..:/var/www/symfony
+    links:
+      - db
+
+  nginx:
+    build: nginx
+    ports:
+      - 80:80
+    volumes_from:
+      - php
+    volumes:
+      - ./logs/nginx/:/var/log/nginx
+
+  db:
+    image: mariadb:10.4
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'afsy'
+      MYSQL_USER: 'afsy'
+      MYSQL_PASSWORD: 'password'

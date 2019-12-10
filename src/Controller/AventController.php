@@ -72,7 +72,7 @@ class AventController extends AbstractController
             '13-creer-une-application-cross-platform' => 'Avent/2017/day_13.html.twig',
             '12-serverless-php-et-symfony' => 'Avent/2017/day_12.html.twig',
             '11-non-a-la-doctrine-decouvrez-pomm-et-re-decouvrez-postgresql' => 'Avent/2017/day_11.html.twig',
-            '10-comment-mettre-les-mains-dans-un-projet-existant' => 'Avent/2017/day_10.html.twig',
+            '10-comment-mfibettre-les-mains-dans-un-projet-existant' => 'Avent/2017/day_10.html.twig',
             '09-utilisation-de-twig-en-phase-de-prototypage' => 'Avent/2017/day_09.html.twig',
             '08-symfony-flex-la-nouvelle-facon-de-developper-avec-symfony' => 'Avent/2017/day_08.html.twig',
             '07-decoupler-form-et-votre-modele' => 'Avent/2017/day_07.html.twig',
@@ -84,7 +84,7 @@ class AventController extends AbstractController
             '01-easyadminbundle-l-arriere-guichet-easy-peasy' => 'Avent/2017/day_01.html.twig',
         ),
         2019 => array(
-            '13-comprendre-composant-messenger-en-y-contribuant' => 'Avent/2019/day_13.html.twig',
+            '13-comprendre-le-composant-messenger-en-y-contribuant' => 'Avent/2019/day_13.html.twig',
             '09-konmariser-son-code' => 'Avent/2019/day_09.html.twig',
             '08-rex-symfony-2-a-4-back' => 'Avent/2019/day_08.html.twig',
             '07-rex-symfony-2-a-4-front' => 'Avent/2019/day_07.html.twig',
